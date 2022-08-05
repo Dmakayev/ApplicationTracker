@@ -1,0 +1,1 @@
+{"ast":null,"code":"import '@firebase/firestore-compat';","map":{"version":3,"names":[],"sources":["/Users/dmakayev/WebstormProjects/ApplicationTracker/node_modules/firebase/compat/firestore/dist/index.esm.js"],"sourcesContent":["import '@firebase/firestore-compat';\n"],"mappings":"AAAA,OAAO,4BAAP"},"metadata":{},"sourceType":"module"}

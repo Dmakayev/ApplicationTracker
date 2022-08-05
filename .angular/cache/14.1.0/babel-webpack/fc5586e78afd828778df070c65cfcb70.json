@@ -1,0 +1,1 @@
+{"ast":null,"code":"export * from '@firebase/analytics';","map":{"version":3,"names":[],"sources":["/Users/dmakayev/WebstormProjects/ApplicationTracker/node_modules/firebase/analytics/dist/index.esm.js"],"sourcesContent":["export * from '@firebase/analytics';\n"],"mappings":"AAAA,cAAc,qBAAd"},"metadata":{},"sourceType":"module"}
