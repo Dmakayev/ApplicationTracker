@@ -1,41 +1,41 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { ToDoItemsComponent } from './components/to-do-items/to-do-items.component';
-import { ItemsComponent } from './components/items/items.component';
+import {AppComponent} from './app.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {AddApplicationComponent} from './components/addApplication/addApplication.component';
+import {ItemsComponent} from './components/items/items.component';
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import { AppRoutingModule } from './app-routing.module';
+import {ItemServiceService} from "./services/item-service.service";
+import {FormsModule} from "@angular/forms";
+import {FlashMessagesModule} from "flash-messages-angular";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatInputModule} from "@angular/material/input";
 
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyApSSED2H5B1SIu_u-geDmyFCY2xrL322A",
-  authDomain: "application-tracker-ca704.firebaseapp.com",
-  projectId: "application-tracker-ca704",
-  storageBucket: "application-tracker-ca704.appspot.com",
-  messagingSenderId: "632158486737",
-  appId: "1:632158486737:web:b547fc3f7d3a36217ec5f0",
-  measurementId: "G-CBKNY84E1N"
-};
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    ToDoItemsComponent,
-    ItemsComponent
-  ],
-  imports: [
-    BrowserModule,
-
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        AddApplicationComponent,
+        ItemsComponent
+    ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+        AppRoutingModule,
+        FormsModule,
+        FlashMessagesModule.forRoot(),
+        MatDatepickerModule,
+        MatInputModule
+    ],
+    providers: [ItemServiceService],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

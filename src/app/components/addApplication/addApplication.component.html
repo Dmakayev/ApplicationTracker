@@ -1,0 +1,75 @@
+<div class="card card-body mb-3">
+    <form #appsForm="ngForm" (ngSubmit)="onSubmit(appsForm)">
+        <div class="form-group">
+            <input
+                    type="text"
+                    class="form-control"
+                    name="companyName"
+                    #appCompanyName="ngModel"
+                    [ngClass]="{'is-invalid':appCompanyName.errors && appCompanyName.touched}"
+                    [(ngModel)]="apps.companyName"
+                    placeholder="Company Name"
+                    minlength="2"
+                    required>
+            <div [hidden]="!appCompanyName.errors?.['required']"
+                 class="invalid-feedback">Company Name Required
+            </div>
+            <div [hidden]="!appCompanyName.errors?.['minlength']"
+                 class="invalid-feedback">Must be at least two characters
+            </div>
+
+            <input
+                    type="text"
+                    class="form-control"
+                    name="position"
+                    #appPositions="ngModel"
+                    [ngClass]="{'is-invalid':appPositions.errors && appPositions.touched}"
+                    [(ngModel)]="apps.position"
+                    placeholder="Position"
+                    minlength="2"
+                    required>
+            <div [hidden]="!appPositions.errors?.['required']"
+                 class="invalid-feedback">Position Required
+            </div>
+            <div [hidden]="!appPositions.errors?.['minlength']"
+                 class="invalid-feedback">Must be at least two characters
+            </div>
+
+            <input
+                    type="text"
+                    class="form-control"
+                    name="dateApplied"
+                    #appDateApplied="ngModel"
+                    [ngClass]="{'is-invalid':appDateApplied.errors && appDateApplied.touched}"
+                    [(ngModel)]="apps.dateApplied"
+                    placeholder="Date Applied"
+                    minlength="2"
+                    required>
+            <div [hidden]="!appDateApplied.errors?.['required']"
+                 class="invalid-feedback">Date Required
+            </div>
+            <div [hidden]="!appDateApplied.errors?.['minlength']"
+                 class="invalid-feedback">Must be at least two characters
+            </div>
+
+            <input
+                    type="text"
+                    class="form-control"
+                    name="dashboardURL"
+                    #appDashboardURL="ngModel"
+                    [ngClass]="{'is-invalid':appDashboardURL.errors && appDashboardURL.touched}"
+                    [(ngModel)]="apps.jobDashboardURL"
+                    placeholder="Dashboard URL"
+                    minlength="2"
+                    required>
+            <div [hidden]="!appDashboardURL.errors?.['required']"
+                 class="invalid-feedback">Dashboard URL Required
+            </div>
+            <div [hidden]="!appDashboardURL.errors?.['minlength']"
+                 class="invalid-feedback">Must be at least two characters
+            </div>
+        </div>
+        <input type="submit" value="Add Job" class="btn btn-light mt-3">
+        <button type="button" class="btn btn-warning mt-3" (click)="appsForm.resetForm()">Clear</button>
+    </form>
+</div>
