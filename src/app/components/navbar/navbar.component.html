@@ -1,5 +1,25 @@
 <nav class="navbar navbar-dark bg-dark mb-3">
     <div class="container">
-        <a href="/" class="navbar-brand">Application Tracker</a>
+        <a routerLink="/" class="navbar-brand">Application Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a routerLink="/" class="nav-link">Dashboard</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a routerLink="/item" class="nav-link">Test2</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="" class="nav-link">Test3</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>

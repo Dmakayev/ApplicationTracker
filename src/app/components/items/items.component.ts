@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Item} from "../../models/item";
 import {ItemServiceService} from "../../services/item-service.service";
+import {Observable} from "rxjs";
+import {AngularFireDatabase, AngularFireList, AngularFireObject} from "@angular/fire/compat/database";
 
 @Component({
   selector: 'app-items',
@@ -8,12 +10,17 @@ import {ItemServiceService} from "../../services/item-service.service";
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  items: Item[] | undefined;
+  items: any[] | undefined;
+  apps: Item[] | undefined;
 
-  constructor(private itemService: ItemServiceService) { }
+  constructor(private itemService: ItemServiceService) {}
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems();
+    this.itemService.getApplications().subscribe(apps => {
+      this.apps = apps;
+      console.log(this.apps)
+    })
+
   }
 
   goToDashboard(item: Item) {
