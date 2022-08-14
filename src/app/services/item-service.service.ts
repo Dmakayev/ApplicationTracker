@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument}
 import {map, Observable} from "rxjs";
 import firebase from "firebase/compat";
 import {ItemsComponent} from "../components/items/items.component";
+import {doc, setDoc} from "@angular/fire/firestore";
 
 
 @Injectable()
@@ -17,7 +18,8 @@ export class ItemServiceService {
     app: Observable<Item> | undefined;
 
     constructor( private afs: AngularFirestore) {
-        this.applicationsCollection = this.afs.collection('Applications')
+        this.applicationsCollection = this.afs.collection('Applications',
+                ref => ref.orderBy('companyName', 'asc'));
     }
 
     getApplications(): Observable<Item[]> {
@@ -34,6 +36,12 @@ export class ItemServiceService {
     newApplication(apps:Item){
         apps.applicationStatus = 'Pending'
         this.applicationsCollection.add(apps);
+
+    }
+
+    updateApplication(apps:Item){
+        const bookDocRef = doc(this.afs.firestore, `Applications/${apps.id}`);
+        return setDoc(bookDocRef, apps)
 
     }
 }

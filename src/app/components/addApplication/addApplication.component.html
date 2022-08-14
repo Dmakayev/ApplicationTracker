@@ -1,9 +1,18 @@
+<!--<mat-form-field>-->
+<!--    <input matInput [matDatepicker]="myDatePicker">-->
+<!--    <mat-datepicker-toggle [for]="myDatePicker" matSuffix ]></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #myDatePicker></mat-datepicker>-->
+<!--</mat-form-field>-->
+
 <div class="card card-body mb-3">
+
+
+
     <form #appsForm="ngForm" (ngSubmit)="onSubmit(appsForm)">
-        <div class="form-group">
+        <div class="form-group ">
             <input
                     type="text"
-                    class="form-control"
+                    class="form-control mb-2"
                     name="companyName"
                     #appCompanyName="ngModel"
                     [ngClass]="{'is-invalid':appCompanyName.errors && appCompanyName.touched}"
@@ -20,7 +29,7 @@
 
             <input
                     type="text"
-                    class="form-control"
+                    class="form-control mb-2"
                     name="position"
                     #appPositions="ngModel"
                     [ngClass]="{'is-invalid':appPositions.errors && appPositions.touched}"
@@ -35,9 +44,12 @@
                  class="invalid-feedback">Must be at least two characters
             </div>
 
+
+
+
             <input
                     type="text"
-                    class="form-control"
+                    class="form-control mb-2"
                     name="dateApplied"
                     #appDateApplied="ngModel"
                     [ngClass]="{'is-invalid':appDateApplied.errors && appDateApplied.touched}"
@@ -55,7 +67,7 @@
             <input
                     type="text"
                     class="form-control"
-                    name="dashboardURL"
+                    name="jobDashboardURL"
                     #appDashboardURL="ngModel"
                     [ngClass]="{'is-invalid':appDashboardURL.errors && appDashboardURL.touched}"
                     [(ngModel)]="apps.jobDashboardURL"
@@ -69,7 +81,8 @@
                  class="invalid-feedback">Must be at least two characters
             </div>
         </div>
-        <input type="submit" value="Add Job" class="btn btn-light mt-3">
-        <button type="button" class="btn btn-warning mt-3" (click)="appsForm.resetForm()">Clear</button>
+        <input type="submit" value="Add Job" class="btn btn-light mt-3" >
+        <button type="button" class="btn btn-warning mt-3 ms-3" (click)="appsForm.resetForm()">Clear</button>
     </form>
 </div>
+

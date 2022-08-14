@@ -7,8 +7,8 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {RouterModule, Routes} from "@angular/router";
 
 const routes: Routes = [
-    {path: '', component: AddApplicationComponent},
-    {path: 'item', component: ItemsComponent},
+    {path: 'addApplication', component: AddApplicationComponent},
+    {path: '', component: ItemsComponent},
     {path: 'navbar', component: NavbarComponent}
 ];
 

@@ -15,6 +15,10 @@ import {FormsModule} from "@angular/forms";
 import {FlashMessagesModule} from "flash-messages-angular";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatNativeDateModule} from "@angular/material/core";
+import { EditApplicationComponent } from './components/edit-application/edit-application.component';
 
 
 @NgModule({
@@ -22,7 +26,8 @@ import {MatInputModule} from "@angular/material/input";
         AppComponent,
         NavbarComponent,
         AddApplicationComponent,
-        ItemsComponent
+        ItemsComponent,
+        EditApplicationComponent
     ],
     imports: [
         BrowserModule,
@@ -32,7 +37,10 @@ import {MatInputModule} from "@angular/material/input";
         FormsModule,
         FlashMessagesModule.forRoot(),
         MatDatepickerModule,
-        MatInputModule
+        MatInputModule,
+        MatIconModule,
+        BrowserAnimationsModule,
+        MatNativeDateModule
     ],
     providers: [ItemServiceService],
     bootstrap: [AppComponent]
