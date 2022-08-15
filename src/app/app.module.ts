@@ -6,7 +6,7 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {AddApplicationComponent} from './components/addApplication/addApplication.component';
 import {ItemsComponent} from './components/items/items.component';
 
-import {environment} from "../environments/environment";
+import {environment} from "../environments/environment.prod";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import { AppRoutingModule } from './app-routing.module';
