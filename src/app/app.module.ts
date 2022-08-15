@@ -20,6 +20,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatNativeDateModule} from "@angular/material/core";
 import { EditApplicationComponent } from './components/edit-application/edit-application.component';
 import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
+import { LoginComponent } from './components/login/login.component';
+import {AuthService} from "./services/auth.service";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import { RegisterComponent } from './components/register/register.component';
+import {SettingsService} from "./services/settings.service";
 
 
 @NgModule({
@@ -29,12 +35,16 @@ import { ApplicationDetailsComponent } from './components/application-details/ap
         AddApplicationComponent,
         ItemsComponent,
         EditApplicationComponent,
-        ApplicationDetailsComponent
+        ApplicationDetailsComponent,
+        LoginComponent,
+        RegisterComponent
     ],
     imports: [
         BrowserModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
+        AngularFirestoreModule,
+        AngularFireAuthModule,
         AppRoutingModule,
         FormsModule,
         FlashMessagesModule.forRoot(),
@@ -44,7 +54,7 @@ import { ApplicationDetailsComponent } from './components/application-details/ap
         BrowserAnimationsModule,
         MatNativeDateModule
     ],
-    providers: [ItemServiceService],
+    providers: [ItemServiceService, AuthService, SettingsService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
