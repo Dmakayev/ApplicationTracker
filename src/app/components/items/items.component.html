@@ -1,7 +1,7 @@
 <div class="card mb-3">
     <div class="card-header">Active Applications</div>
     <ul class="list-group list-group-flush">
-        <div *ngFor="let item of apps">
+        <div *ngFor="let item of apps; let i = index" [class.active]="i === currentIndex">
             <li *ngIf="item.applicationStatus === 'Pending'" class="list-group-item d-flex justify-content-between ">
                 <span class="text">{{item.companyName}}</span>
                 <span class="textPosition">{{item.position}}</span>
@@ -9,7 +9,7 @@
                 <span class="item-date text">{{item.dateApplied | date}}</span>
                 <a class="text" target="_blank" rel="noreferrer noopener" href="{{item.jobDashboardURL}}">Dashboard</a>
                 <span>
-                    <button class="btn fa fa-pencil"></button>
+                    <button routerLink="edit/{{item.id}}" class="btn fa fa-pencil"></button>
                     <button class="btn fa fa-remove"></button>
                 </span>
 
@@ -28,7 +28,7 @@
                 <span class="item-date text">{{item.dateApplied | date}}</span>
                 <a class="text" target="_blank" rel="noreferrer noopener" href="{{item.jobDashboardURL}}">Dashboard</a>
                 <span>
-                    <button class="btn fa fa-pencil"></button>
+                    <button routerLink="edit/{{item.id}}" class="btn fa fa-pencil"></button>
                     <button class="btn fa fa-remove"></button>
                 </span>
 

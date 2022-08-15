@@ -37,7 +37,6 @@ export class AddApplicationComponent implements OnInit {
       this.appService.newApplication(value);
       this.flashMessage.show('New Application Saved', {cssClass: 'alert-success', timeout:4000});
 
-
     }
   }
 

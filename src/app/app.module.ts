@@ -19,6 +19,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatNativeDateModule} from "@angular/material/core";
 import { EditApplicationComponent } from './components/edit-application/edit-application.component';
+import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { EditApplicationComponent } from './components/edit-application/edit-app
         NavbarComponent,
         AddApplicationComponent,
         ItemsComponent,
-        EditApplicationComponent
+        EditApplicationComponent,
+        ApplicationDetailsComponent
     ],
     imports: [
         BrowserModule,

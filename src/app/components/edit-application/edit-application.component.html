@@ -1,1 +1,66 @@
-<p>edit-application works!</p>
+<div *ngIf="currentApp" class="edit-form">
+    <h4>Edit Application</h4>
+    <form>
+        <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="companyName"
+                    [(ngModel)]="currentApp.companyName"
+                    placeholder="currentApp.companyName"
+                    name="companyName"
+            />
+        </div>
+        <div class="form-group">
+            <label for="position">Position</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="position"
+                    [(ngModel)]="currentApp.position"
+                    name="position"
+            />
+        </div>
+        <div class="form-group">
+            <label for="applicationStatus">Application Status</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="applicationStatus"
+                    [(ngModel)]="currentApp.applicationStatus"
+                    name="applicationStatus"
+            />
+        </div>
+        <div class="form-group">
+            <label for="dateApplied">Date Applied</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="dateApplied"
+                    [(ngModel)]="currentApp.dateApplied"
+                    name="dateApplied"
+            />
+        </div>
+        <div class="form-group">
+            <label for="jobDashboardURL">Dashboard URL</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="jobDashboardURL"
+                    [(ngModel)]="currentApp.jobDashboardURL"
+                    name="jobDashboardURL"
+            />
+        </div>
+    </form>
+    <button type="submit" class="btn btn-dark me-2 mt-3" (click)="updateApplication()">
+        Update
+    </button>
+    <button type="submit" class="btn btn-danger mt-3" (click)="deleteApplication()">
+        Delete
+    </button>
+</div>
+<div *ngIf="!currentApp">
+    <br/>
+    <p>Cannot access this Application...</p>
+</div>
