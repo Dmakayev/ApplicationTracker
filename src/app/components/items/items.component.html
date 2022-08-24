@@ -1,7 +1,8 @@
+<button routerLink="addApplication" class="btn btn-primary mb-3" >Add Application</button>
 <div class="card mb-3">
     <div class="card-header">Active Applications</div>
     <ul class="list-group list-group-flush">
-        <div *ngFor="let item of apps; let i = index" [class.active]="i === currentIndex">
+        <div *ngFor="let item of apps">
             <li *ngIf="item.applicationStatus === 'Pending'" class="list-group-item d-flex justify-content-between ">
                 <span class="text">{{item.companyName}}</span>
                 <span class="textPosition">{{item.position}}</span>
@@ -10,7 +11,6 @@
                 <a class="text" target="_blank" rel="noreferrer noopener" href="{{item.jobDashboardURL}}">Dashboard</a>
                 <span>
                     <button routerLink="edit/{{item.id}}" class="btn fa fa-pencil"></button>
-                    <button class="btn fa fa-remove"></button>
                 </span>
 
             </li>
@@ -29,7 +29,6 @@
                 <a class="text" target="_blank" rel="noreferrer noopener" href="{{item.jobDashboardURL}}">Dashboard</a>
                 <span>
                     <button routerLink="edit/{{item.id}}" class="btn fa fa-pencil"></button>
-                    <button class="btn fa fa-remove"></button>
                 </span>
 
             </li>

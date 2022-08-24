@@ -3,6 +3,7 @@ import {ItemServiceService} from "../../services/item-service.service";
 import {Item} from "../../models/item";
 import {FlashMessagesService} from "flash-messages-angular";
 import {NgForm} from "@angular/forms";
+import {AuthService} from "../../services/auth.service";
 
 
 @Component({
@@ -24,6 +25,7 @@ export class AddApplicationComponent implements OnInit {
 
 
   constructor(private flashMessage:FlashMessagesService,
+              private authService: AuthService,
               private appService: ItemServiceService) { }
 
   ngOnInit(): void {
@@ -34,8 +36,17 @@ export class AddApplicationComponent implements OnInit {
       this.flashMessage.show('Please Fill Out Form', {cssClass: 'alert-danger', timeout:4000});
 
     }else {
-      this.appService.newApplication(value);
-      this.flashMessage.show('New Application Saved', {cssClass: 'alert-success', timeout:4000});
+
+      this.authService.getAuth().subscribe(auth => {
+        if (auth) {
+          this.appService.newApplication(value, auth.email);
+          this.flashMessage.show('New Application Saved', {cssClass: 'alert-success', timeout:4000});
+        }
+      });
+
+
+
+
 
     }
   }
